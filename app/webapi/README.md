@@ -4,15 +4,15 @@
 
 In the Package Manager Console, you can run:
 
-### cd webapi
+### `cd webapi`
 
 Use this command before running the other commands below to be in the correct location.
 
-### Add-Migration MigrationName
+### `Add-Migration MigrationName`
 
 Use this command whenever making a change to the database models.
 
-### Update-Database
+### `Update-Database`
 
 Use this command to apply the new migration.
 
