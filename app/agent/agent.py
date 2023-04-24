@@ -1,57 +1,40 @@
-import argparse
-import sys
 import os
-import subprocess
+from dotenv import load_dotenv
+load_dotenv(verbose=True, override=True)
 
-def list_python_files(path, ignore_folders=None):
-    if ignore_folders is None:
-        ignore_folders = ["env", ".vs"]
+from langchain.embeddings.openai import OpenAIEmbeddings
+embeddings = OpenAIEmbeddings()
 
-    python_files = []
+from langchain.vectorstores import DeepLake
 
-    for root, dirs, files in os.walk(path):
-        dirs[:] = [d for d in dirs if d not in ignore_folders]  # Exclude the ignored folders
+activeloop_dataset = os.getenv("ACTIVELOOP_DATASET")
+development_folder = os.getenv("DEVELOPMENT_FOLDER")
 
-        for file in files:
-            if file.endswith('.py'):
-                python_files.append(os.path.join(root, file))
+# Question Answering on Auto-GPT algorithm codebase
+db = DeepLake(dataset_path=activeloop_dataset, read_only=True, embedding_function=embeddings)
 
-    return python_files
+retriever = db.as_retriever()
+retriever.search_kwargs['distance_metric'] = 'cos'
+retriever.search_kwargs['fetch_k'] = 100
+retriever.search_kwargs['maximal_marginal_relevance'] = True
+retriever.search_kwargs['k'] = 20
 
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import ConversationalRetrievalChain
 
-def analyze_code_with_pylint(python_files):
-    pylint_reports = {}
+model = ChatOpenAI(model='gpt-3.5-turbo')
+qa = ConversationalRetrievalChain.from_llm(model,retriever=retriever)
 
-    for file in python_files:
-        python_executable = sys.executable
-        cmd = [python_executable, "-m", "pylint", file, "--output-format=text"]
-        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        pylint_output = result.stdout
+chat_history = []
+project_name = development_folder.split('/')[-1]
 
-        if pylint_output:
-            pylint_reports[file] = pylint_output
-
-    return pylint_reports
-
-
-def main(project_path):
-    # Find all Python files in the project folder
-    python_files = list_python_files(project_path)
-
-    # Analyze the Python files using Pylint
-    pylint_reports = analyze_code_with_pylint(python_files)
-
-    # Print the Pylint reports
-    for file, report in pylint_reports.items():
-        print(f"File: {file}\n{report}\n")
-
-
-if __name__ == "__main__":
-    # parser = argparse.ArgumentParser(description="Analyze a Python project with Pylint.")
-    # parser.add_argument("-p", "--path", required=True, help="Path to the project folder.")
-    # args = parser.parse_args()
-
-    # project_path = args.path
-    project_path = "C:/Eurofiber/visio2excel"
-
-    main(project_path)
+# prompt for user input
+print(f"Welcome to the {project_name} chatbot. Type 'exit' to quit.")
+while True:
+    user_input = input(">> ")
+    if user_input == "exit":
+        break
+    question = user_input
+    result = qa({"question": question, "chat_history": chat_history})
+    chat_history.append((question, result['answer']))
+    print(f"**Answer**: {result['answer']} \n")
