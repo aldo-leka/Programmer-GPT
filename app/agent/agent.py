@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv(verbose=True, override=True)
 
 from langchain.embeddings.openai import OpenAIEmbeddings
-embeddings = OpenAIEmbeddings()
+embeddings = OpenAIEmbeddings(disallowed_special=())
 
 from langchain.vectorstores import DeepLake
 
@@ -17,19 +17,19 @@ retriever = db.as_retriever()
 retriever.search_kwargs['distance_metric'] = 'cos'
 retriever.search_kwargs['fetch_k'] = 100
 retriever.search_kwargs['maximal_marginal_relevance'] = True
-retriever.search_kwargs['k'] = 20
+retriever.search_kwargs['k'] = 10
 
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 
-model = ChatOpenAI(model='gpt-3.5-turbo')
+model = ChatOpenAI(model='gpt-4', temperature=0.5, request_timeout=120) # gpt-3.5-turbo
 qa = ConversationalRetrievalChain.from_llm(model,retriever=retriever)
 
 chat_history = []
 project_name = development_folder.split('/')[-1]
 
 # prompt for user input
-print(f"Welcome to the {project_name} chatbot. Type 'exit' to quit.")
+print(f"Welcome to the {project_name} chatbot. Ask any questions or type 'exit' to quit.")
 while True:
     user_input = input(">> ")
     if user_input == "exit":
