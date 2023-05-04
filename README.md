@@ -24,5 +24,6 @@ To use the scripts:
 
 2. Run `py app\agent\agent.py` to have Chat-GPT give you implementations for new features or simply provide answers for your questions.
 
-Demo
+Demo:
+
 ![alt text](https://github.com/lekisti/Programmer-GPT/blob/main/img/demo.png?raw=true)

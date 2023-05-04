@@ -1,3 +1,425 @@
-## Original ignores
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 .vs/
 .git/
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+#pycharm
+.idea/
+
+# macOS
+.DS_Store
+
+#backend (more complex, maybe show later)
+*/backend/
+
+#frontend (more complex, maybe show later)
+*/frontend/
+
+# Logs
+*/frontend/logs
+*/frontend/*.log
+*/frontend/npm-debug.log*
+*/frontend/yarn-debug.log*
+*/frontend/yarn-error.log*
+*/frontend/pnpm-debug.log*
+*/frontend/lerna-debug.log*
+
+*/frontend/node_modules
+*/frontend/dist
+*/frontend/dist-ssr
+*/frontend/*.local
+
+# Editor directories and files
+*/frontend/.vscode/*
+*/frontend/!.vscode/extensions.json
+*/frontend/.idea
+*/frontend/.DS_Store
+*/frontend/*.suo
+*/frontend/*.ntvs*
+*/frontend/*.njsproj
+*/frontend/*.sln
+*/frontend/*.sw?
+
+#webapi
+# User-specific files
+*/webapi/*.suo
+*/webapi/*.user
+*/webapi/*.userosscache
+*/webapi/*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*/webapi/*.userprefs
+
+# Build results
+*/webapi/[Dd]ebug/
+*/webapi/[Dd]ebugPublic/
+*/webapi/[Rr]elease/
+*/webapi/[Rr]eleases/
+*/webapi/x64/
+*/webapi/x86/
+*/webapi/bld/
+*/webapi/[Bb]in/
+*/webapi/[Oo]bj/
+*/webapi/[Ll]og/
+
+# Visual Studio 2015 cache/options directory
+*/webapi/.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# MSTest test Results
+*/webapi/[Tt]est[Rr]esult*/
+*/webapi/[Bb]uild[Ll]og.*
+
+# NUNIT
+*/webapi/*.VisualState.xml
+*/webapi/TestResult.xml
+
+# Build Results of an ATL Project
+*/webapi/[Dd]ebugPS/
+*/webapi/[Rr]eleasePS/
+*/webapi/dlldata.c
+
+# DNX
+*/webapi/project.lock.json
+*/webapi/project.fragment.lock.json
+*/webapi/artifacts/
+
+*/webapi/*_i.c
+*/webapi/*_p.c
+*/webapi/*_i.h
+*/webapi/*.ilk
+*/webapi/*.meta
+*/webapi/*.obj
+*/webapi/*.pch
+*/webapi/*.pdb
+*/webapi/*.pgc
+*/webapi/*.pgd
+*/webapi/*.rsp
+*/webapi/*.sbr
+*/webapi/*.tlb
+*/webapi/*.tli
+*/webapi/*.tlh
+*/webapi/*.tmp
+*/webapi/*.tmp_proj
+*/webapi/*.log
+*/webapi/*.vspscc
+*/webapi/*.vssscc
+*/webapi/.builds
+*/webapi/*.pidb
+*/webapi/*.svclog
+*/webapi/*.scc
+
+# Chutzpah Test files
+*/webapi/_Chutzpah*
+
+# Visual C++ cache files
+*/webapi/ipch/
+*/webapi/*.aps
+*/webapi/*.ncb
+*/webapi/*.opendb
+*/webapi/*.opensdf
+*/webapi/*.sdf
+*/webapi/*.cachefile
+*/webapi/*.VC.db
+*/webapi/*.VC.VC.opendb
+
+# Visual Studio profiler
+*/webapi/*.psess
+*/webapi/*.vsp
+*/webapi/*.vspx
+*/webapi/*.sap
+
+# Guidance Automation Toolkit
+*/webapi/*.gpState
+
+# ReSharper is a .NET coding add-in
+*/webapi/_ReSharper*/
+*/webapi/*.[Rr]e[Ss]harper
+*/webapi/*.DotSettings.user
+
+# JustCode is a .NET coding add-in
+*/webapi/.JustCode
+
+# TeamCity is a build add-in
+*/webapi/_TeamCity*
+
+# DotCover is a Code Coverage Tool
+*/webapi/*.dotCover
+
+# Visual Studio code coverage results
+*/webapi/*.coverage
+*/webapi/*.coveragexml
+
+# NCrunch
+*/webapi/_NCrunch_*
+*/webapi/.*crunch*.local.xml
+*/webapi/nCrunchTemp_*
+
+# MightyMoose
+*/webapi/*.mm.*
+*/webapi/AutoTest.Net/
+
+# Web workbench (sass)
+*/webapi/.sass-cache/
+
+# Installshield output folder
+webapi/[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+*/webapi/DocProject/buildhelp/
+*/webapi/DocProject/Help/*.HxT
+*/webapi/DocProject/Help/*.HxC
+*/webapi/DocProject/Help/*.hhc
+*/webapi/DocProject/Help/*.hhk
+*/webapi/DocProject/Help/*.hhp
+*/webapi/DocProject/Help/Html2
+*/webapi/DocProject/Help/html
+
+# Click-Once directory
+*/webapi/publish/
+
+# Publish Web Output
+*/webapi/*.[Pp]ublish.xml
+*/webapi/*.azurePubxml
+# TODO: Comment the next line if you want to checkin your web deploy settings
+# but database connection strings (with potential passwords) will be unencrypted
+*/webapi/*.pubxml
+*/webapi/*.publishproj
+
+# Microsoft Azure Web App publish settings. Comment the next line if you want to
+# checkin your Azure Web App publish settings, but sensitive information contained
+# in these scripts will be unencrypted
+*/webapi/PublishScripts/
+
+# NuGet Packages
+*/webapi/*.nupkg
+# The packages folder can be ignored because of Package Restore
+*/webapi/**/packages/*
+# except build/, which is used as an MSBuild target.
+*/webapi/!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+# NuGet v3's project.json files produces more ignoreable files
+*/webapi/*.nuget.props
+*/webapi/*.nuget.targets
+
+# Microsoft Azure Build Output
+*/webapi/csx/
+*/webapi/*.build.csdef
+
+# Microsoft Azure Emulator
+*/webapi/ecf/
+*/webapi/rcf/
+
+# Windows Store app package directories and files
+*/webapi/AppPackages/
+*/webapi/BundleArtifacts/
+*/webapi/Package.StoreAssociation.xml
+*/webapi/_pkginfo.txt
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*/webapi/*.[Cc]ache
+# but keep track of directories ending in .cache
+*/webapi/!*.[Cc]ache/
+
+# Others
+*/webapi/ClientBin/
+*/webapi/~$*
+*/webapi/*~
+*/webapi/*.dbmdl
+*/webapi/*.dbproj.schemaview
+*/webapi/*.jfm
+*/webapi/*.pfx
+*/webapi/*.publishsettings
+*/webapi/node_modules/
+*/webapi/orleans.codegen.cs
+
+# Since there are multiple workflows, uncomment next line to ignore bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
+
+# RIA/Silverlight projects
+*/webapi/Generated_Code/
+
+# Backup & report files from converting an old project file
+# to a newer Visual Studio version. Backup files are not needed,
+# because we have git ;-)
+*/webapi/_UpgradeReport_Files/
+*/webapi/Backup*/
+*/webapi/UpgradeLog*.XML
+*/webapi/UpgradeLog*.htm
+
+# SQL Server files
+*/webapi/*.mdf
+*/webapi/*.ldf
+
+# Business Intelligence projects
+*/webapi/*.rdl.data
+*/webapi/*.bim.layout
+*/webapi/*.bim_*.settings
+
+# Microsoft Fakes
+*/webapi/FakesAssemblies/
+
+# GhostDoc plugin setting file
+*/webapi/*.GhostDoc.xml
+
+# Node.js Tools for Visual Studio
+*/webapi/.ntvs_analysis.dat
+
+# Visual Studio 6 build log
+*/webapi/*.plg
+
+# Visual Studio 6 workspace options file
+*/webapi/*.opt
+
+# Visual Studio LightSwitch build output
+*/webapi/**/*.HTMLClient/GeneratedArtifacts
+*/webapi/**/*.DesktopClient/GeneratedArtifacts
+*/webapi/**/*.DesktopClient/ModelManifest.xml
+*/webapi/**/*.Server/GeneratedArtifacts
+*/webapi/**/*.Server/ModelManifest.xml
+*/webapi/_Pvt_Extensions
+
+# Paket dependency manager
+*/webapi/.paket/paket.exe
+*/webapi/paket-files/
+
+# FAKE - F# Make
+*/webapi/.fake/
+
+# JetBrains Rider
+*/webapi/.idea/
+*/webapi/*.sln.iml
+
+# CodeRush
+*/webapi/.cr/

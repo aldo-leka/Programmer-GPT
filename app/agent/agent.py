@@ -22,7 +22,7 @@ retriever.search_kwargs['k'] = 10
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 
-model = ChatOpenAI(model='gpt-4', temperature=0.5, request_timeout=120) # gpt-3.5-turbo
+model = ChatOpenAI(model='gpt-4', temperature=0, request_timeout=120) # gpt-3.5-turbo
 qa = ConversationalRetrievalChain.from_llm(model,retriever=retriever)
 
 chat_history = []
