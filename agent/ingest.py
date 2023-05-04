@@ -9,8 +9,6 @@ from langchain.vectorstores import DeepLake
 
 load_dotenv(verbose=True, override=True)
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
-activeloop_token = os.getenv("ACTIVELOOP_TOKEN")
 activeloop_dataset = os.getenv("ACTIVELOOP_DATASET")
 development_folder = os.getenv("DEVELOPMENT_FOLDER")
 
@@ -31,11 +29,11 @@ def abspath(path, *paths):
 
 gitignore_parser = IgnoreParser()
 gitignore_parser.parse_rule_files(development_folder)
-gitignore_parser.add_rule(".env", development_folder)
-gitignore_parser.add_rule(".venv", development_folder)
-gitignore_parser.add_rule("env/", development_folder)
-gitignore_parser.add_rule("venv/", development_folder)
-gitignore_parser.add_rule("ENV/", development_folder)
+# gitignore_parser.add_rule(".env", development_folder)
+# gitignore_parser.add_rule(".venv", development_folder)
+# gitignore_parser.add_rule("env/", development_folder)
+# gitignore_parser.add_rule("venv/", development_folder)
+# gitignore_parser.add_rule("ENV/", development_folder)
 
 docs = []
 
@@ -61,6 +59,5 @@ text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 texts = text_splitter.split_documents(docs)
 
 db = DeepLake.from_documents(
-    texts, embeddings, dataset_path=activeloop_dataset)
+    texts, embeddings, dataset_path=activeloop_dataset, overwrite=True)
 
-# TODO Implement local redis cache for legally safer (not cloud) memory usage

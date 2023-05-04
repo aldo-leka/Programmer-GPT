@@ -16,11 +16,11 @@ Use this command to activate the virtual environment and to run the following co
 
 Use this command to install the requirements for your project when creating the virtual environment.
 
-### Start ingest.py script or run `py ingest.py` (or `py app\agent\ingest.py` at root)
+### Start ingest.py script or run `py ingest.py` (or `py agent\ingest.py` at root)
 
 Use this command to ingest the agent's memory with the development project's files.
 
-### Start agent.py script or run `py agent.py` (or `py app\agent\agent.py` at root)
+### Start agent.py script or run `py agent.py` (or `py agent\agent.py` at root)
 
 Use this command to test the AI model with questions about the codebase.
 
