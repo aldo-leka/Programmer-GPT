@@ -1,32 +1,84 @@
 # Programmer-GPT
 
-The inspiration for this project came from the necessity to provide context continuously to Chat-GPT about code that I wanted to get help with. What if Chat-GPT already had access to all my codebase?
+Programmer-GPT is an AI-powered code assistant that integrates with OpenAI's GPT models to analyze your codebase and assist with programming tasks. Inspired by the need to continuously provide context to ChatGPT, this tool automates the process, allowing AI to understand and interact with your entire project.
 
-Programmer-GPT is an AI agent that uses OpenAI API and the GPT models to analyse your codebase and solve your programming tasks.
+## ✨ Features
+- 📂 **Codebase Ingestion** – Automatically parses your project files while respecting `.gitignore` rules.
+- 💡 **AI-Powered Assistance** – Generate implementations, refactor code, or get explanations for complex logic.
+- 🔍 **Customizable Data Storage** – Store analyzed data locally or in the cloud using Activeloop’s Deep Lake.
+- 🛠 **Automated Workflow** – No need to copy-paste code into ChatGPT—simply query your project.
 
-## Getting Started
+## 🚀 Getting Started
 
-Currently only the `agent` Python project is functional and it provides two Python scripts which are useful: `ingest.py` and `agent.py`.
+### **Prerequisites**
+- Python 3.8+
+- OpenAI API Key
+- (Optional) Activeloop Account for cloud storage
 
-In order for these scripts to work you need to create a new file named `.env` that contains the following data:
+### **Setup Instructions**
+1. **Clone the repository**  
+   ```sh
+   git clone https://github.com/aldo-leka/Programmer-GPT.git
+   cd Programmer-GPT
+   ```
+2. **Create a `.env` file** with the following values:
+   ```ini
+   DEVELOPMENT_FOLDER=C:/Projects/my-project
+   OPENAI_API_KEY=your-openai-api-key
+   ACTIVELOOP_TOKEN=your-activeloop-token
+   ACTIVELOOP_DATASET=hub://username/dataset-name
+   ```
+   - To store the dataset locally, use `./my_deeplake/` instead of an Activeloop URL.
+   - If storing locally, you can leave `ACTIVELOOP_TOKEN` empty.
 
-1. DEVELOPMENT_FOLDER=C:/Projects/my-project
-2. OPENAI_API_KEY=your-openai-api-key
-3. ACTIVELOOP_TOKEN=your-activeloop-token
-4. ACTIVELOOP_DATASET=hub://username/dataset-name
+3. **Install dependencies**  
+   ```sh
+   pip install -r requirements.txt
+   ```
 
-You can store the dataset locally by providing a local folder such as `./my_deeplake/` as the configuration value of ACTIVELOOP_DATASET.
-In that case, you can also leave ACTIVELOOP_TOKEN empty.
+### **Usage**
 
-Optionally, you can get the token and set your username for Activeloop's Deep Lake at `app.activeloop.ai`.
-Dataset name can be whatever you want to name your dataset, e.g. the dev project's name.
+1. **Ingest your codebase**  
+   ```sh
+   python agent/ingest.py
+   ```
+   - This script scans your codebase and prepares it for AI analysis.
+   - Files ignored by `.gitignore` are automatically excluded.
 
-To use the scripts:
+2. **Query your project with AI**  
+   ```sh
+   python agent/agent.py
+   ```
+   - Use this script to ask GPT about your code, request feature implementations, or get debugging help.
 
-1. Run `py agent\ingest.py` to ingest your codebase into the memory of Chat-GPT. Keep in mind that in order to speed up the process and reduce waste, `ingest.py` won't upload the folder and files that follow the patterns that are specified in the `.gitignore` files found in the development folder.
+## 🎥 Demo
+![Programmer-GPT Demo](https://github.com/aldo-leka/Programmer-GPT/blob/main/img/demo.png?raw=true)
 
-2. Run `py agent\agent.py` to have Chat-GPT give you implementations for new features or simply provide answers for your questions.
+---
 
-Demo:
+## 📁 Project Structure
+```
+Programmer-GPT/
+│── agent/                 # AI processing scripts
+│   ├── ingest.py          # Scans and ingests project files
+│   ├── agent.py           # AI-powered programming assistant
+│── img/                   # Demo images
+│── .env.example           # Example environment variables
+│── requirements.txt       # Python dependencies
+```
 
-![alt text](https://github.com/lekisti/Programmer-GPT/blob/main/img/demo.png?raw=true)
+---
+
+## 🤝 Contributing
+Want to enhance Programmer-GPT? Feel free to fork the repo and submit a pull request!
+
+---
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+---
+
+## 📬 Contact
+For issues, questions, or feature requests, reach out via **GitHub Issues**.
+
